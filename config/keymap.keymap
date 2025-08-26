@@ -84,6 +84,66 @@
             bindings = <&kp LG(L)>;
             key-positions = <40 41>;
         };
+
+        macro_alt_win_4 {
+            bindings = <&kp LA(LG(NUMBER_4))>;
+            key-positions = <33 34>;
+        };
+
+        macro_alt_win_5 {
+            bindings = <&kp LA(LG(NUMBER_5))>;
+            key-positions = <34 35>;
+        };
+
+        macro_alt_win_6 {
+            bindings = <&kp LA(LG(NUMBER_6))>;
+            key-positions = <35 36>;
+        };
+
+        macro_ctl_sft_a {
+            bindings = <&kp LS(LC(A))>;
+            key-positions = <33 35>;
+        };
+
+        macro_alt_e {
+            bindings = <&kp LA(E)>;
+            key-positions = <34 36>;
+        };
+
+        macro_alt_d {
+            bindings = <&kp LA(D)>;
+            key-positions = <33 36>;
+        };
+
+        macro_ctl_t {
+            bindings = <&kp LC(T)>;
+            key-positions = <47 49>;
+        };
+
+        macro_ctl_w {
+            bindings = <&kp LC(W)>;
+            key-positions = <48 50>;
+        };
+
+        macro_ctl_sft_t {
+            bindings = <&kp LS(LC(T))>;
+            key-positions = <48 49>;
+        };
+
+        macro_ctl_sft_o {
+            bindings = <&kp LS(LC(O))>;
+            key-positions = <47 50>;
+        };
+
+        macro_ctl_pgup {
+            bindings = <&kp LC(PAGE_UP)>;
+            key-positions = <47 48>;
+        };
+
+        macro_ctl_pgdown {
+            bindings = <&kp LC(PAGE_DOWN)>;
+            key-positions = <49 50>;
+        };
     };
 
     behaviors {
