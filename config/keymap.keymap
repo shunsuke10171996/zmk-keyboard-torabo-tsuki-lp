@@ -86,6 +86,31 @@
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
         };
+
+        tap_dance_f1_f11: tap_dance_f1_f11 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_F1_F11";
+            #binding-cells = <0>;
+            bindings = <&kp F1>, <&kp F11>;
+
+            tapping-term-ms = <180>;
+        };
+
+        tap_dance_f2_f3: tap_dance_f2_f3 {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_F2_F3";
+            #binding-cells = <0>;
+            tapping-term-ms = <180>;
+            bindings = <&kp F2>, <&kp F3>;
+        };
+
+        tap_dance_cz_cy: tap_dance_cz_cy {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAP_DANCE_CZ_CY";
+            #binding-cells = <0>;
+            tapping-term-ms = <180>;
+            bindings = <&kp LC(Z)>, <&kp LC(Y)>;
+        };
     };
 
     keymap {
@@ -113,11 +138,11 @@
 
         layer_2 {
             bindings = <
-&none  &none             &none             &none       &none       &none                       &none           &none          &none             &none              &none          &none
-&none  &kp LS(NUMBER_1)  &kp LS(NUMBER_2)  &kp LS(N3)  &kp LS(N4)  &kp LS(N5)                  &kp LS(N6)      &kp LS(N7)     &kp LS(N8)        &kp LS(N9)         &kp LS(N0)     &none
-&none  &kp N1            &kp N2            &kp N3      &kp N4      &kp N5      &none   &none   &kp LEFT_BRACE  &kp MINUS      &kp EQUAL         &kp RIGHT_BRACE    &kp COLON      &none
-&none  &kp N6            &kp N7            &kp N8      &kp N9      &kp N0      &trans  &trans  &kp LS(MINUS)   &kp LS(EQUAL)  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp BACKSLASH  &none
-&none  &trans            &trans            &none       &none       &trans      &trans  &trans  &trans          &none          &none             &trans             &trans         &none
+&none  &none             &none      &none       &none      &none                              &none          &none           &none           &none            &none                    &none
+&none  &kp F4            &kp LC(W)  &kp ESCAPE  &kp ENTER  &tap_dance_f1_f11                  &kp CAPSLOCK   &kp HOME        &kp UP_ARROW    &kp END          &kp PRINTSCREEN          &none
+&none  &kp LC(A)         &kp LC(S)  &kp DELETE  &kp LC(F)  &tap_dance_f2_f3   &none   &none   &kp BACKSPACE  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp DELETE               &none
+&none  &tap_dance_cz_cy  &kp LC(X)  &kp LC(C)   &kp LC(V)  &kp BACKSPACE      &trans  &trans  &kp ESCAPE     &kp ENTER       &kp PAGE_UP     &kp PAGE_DOWN    &kp LANG_ZENKAKUHANKAKU  &none
+&none  &trans            &trans     &none       &none      &trans             &trans  &trans  &trans         &none           &none           &trans           &trans                   &none
             >;
         };
 
