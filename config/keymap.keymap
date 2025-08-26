@@ -176,7 +176,7 @@
         mod_morph_minus_underscore: mod_morph_minus_underscore {
             compatible = "zmk,behavior-mod-morph";
             label = "MOD_MORPH_MINUS_UNDERSCORE";
-            bindings = <&kp MINUS>, <&kp LS(INT1)>;
+            bindings = <&kp MINUS>, <&kp JP_UNDER>;
 
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
