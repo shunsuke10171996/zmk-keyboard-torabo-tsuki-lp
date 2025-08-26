@@ -15,10 +15,4 @@
         status = "okay";
         input-processors = <&zip_xy_to_scroll_mapper>;
      };
-
-    zip_xy_to_scroll_mapper: zip_xy_to_scroll_mapper {
-        compatible = "zmk,xy-to-scroll";
-        // Y軸のみをスクロールにマッピング
-        axes-map = <1>; 
-    };
 };
