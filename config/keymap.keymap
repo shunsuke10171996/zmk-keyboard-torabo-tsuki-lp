@@ -193,18 +193,18 @@
             label = "MACRO_NIEBUHR";
         };
 
-        macro_alt_spc_m: new_macro {
+        macro_alt_spc_m: macro_alt_spc_m {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LA(SPACE) &kp M>;
-            label = "NEW_MACRO";
+            label = "MACRO_ALT_SPC_M";
         };
 
-        macro_alt_spc_s: new_macro {
+        macro_alt_spc_s: macro_alt_spc_s {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp LA(SPACE) &kp S>;
-            label = "NEW_MACRO";
+            label = "MACRO_ALT_SPC_S";
         };
     };
 
