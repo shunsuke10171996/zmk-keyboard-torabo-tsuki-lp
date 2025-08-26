@@ -288,7 +288,7 @@
         macro_passhead: macro_passhead {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp LS(T) &kp AT &kp K &kp N3>;
+            bindings = <&none &kp LS(T) &kp JP_AT &kp K &kp N3>;
             label = "MACRO_PASSHEAD";
         };
     };
@@ -341,7 +341,7 @@
 &none  &none           &none                            &none             &none            &none                   &none    &none                     &none        &none        &none         &none
 &none  &kp LEFT_WIN    &kp LESS_THAN                    &kp GREATER_THAN  &macro_passhead  &kp F5                  &kp F6   &kp JP_CARET              &kp JP_LPAR  &kp JP_RPAR  &kp DOLLAR    &none
 &none  &kp LCTRL       &tap_dance_exclamation_question  &kp JP_EQUAL      &kp JP_AT        &kp F7  &none   &none   &kp F8   &tap_dance_single_double  &kp JP_LBKT  &kp JP_RBKT  &kp JP_GRAVE  &none
-&none  &kp LEFT_SHIFT  &kp AMPERSAND                    &kp PIPE          &kp HASH         &kp F9  &trans  &trans  &kp F12  &kp SLASH                 &kp JP_LBRC  &kp JP_RBRC  &kp JP_BSLH   &none
+&none  &kp LEFT_SHIFT  &kp JP_AMPS                    &kp JP_PIPE          &kp HASH         &kp F9  &trans  &trans  &kp F12  &kp SLASH                 &kp JP_LBRC  &kp JP_RBRC  &kp JP_BSLH   &none
 &none  &trans          &trans                           &none             &none            &trans  &trans  &trans  &trans   &none                     &none        &trans       &trans        &none
             >;
         };
