@@ -34,10 +34,55 @@
     combos {
         compatible = "zmk,combos";
 
-        bt_clear {
-            bindings = <&bt BT_CLR>;
-            key-positions = <28 29>;
+        combo_alt_spc_m {
+            bindings = <&macro_alt_spc_m>;
+            key-positions = <27 26>;
             layers = <2>;
+        };
+
+        combo_alt_spc_s {
+            bindings = <&macro_alt_spc_s>;
+            key-positions = <26 28>;
+        };
+
+        combo_shift_win_left {
+            bindings = <&kp LS(LG(LEFT_ARROW))>;
+            key-positions = <13 14>;
+        };
+
+        combo_shift_win_right {
+            bindings = <&kp LS(LG(RIGHT_ARROW))>;
+            key-positions = <27 28>;
+        };
+
+        combo_win_tab {
+            bindings = <&kp LG(TAB)>;
+            key-positions = <39 42>;
+        };
+
+        combo_ctl_win_left {
+            bindings = <&kp LC(LG(LEFT_ARROW))>;
+            key-positions = <39 40>;
+        };
+
+        combo_ctl_win_right {
+            bindings = <&kp LC(LG(RIGHT_ARROW))>;
+            key-positions = <42 41>;
+        };
+
+        combo_ctl_win_d {
+            bindings = <&kp LC(LG(D))>;
+            key-positions = <40 42>;
+        };
+
+        combo_ctl_win_f4 {
+            bindings = <&kp LC(LG(F4))>;
+            key-positions = <39 41>;
+        };
+
+        combo_win_l {
+            bindings = <&kp LG(L)>;
+            key-positions = <40 41>;
         };
     };
 
@@ -131,6 +176,13 @@
             #binding-cells = <0>;
             bindings = <&kp SINGLE_QUOTE>, <&kp DOUBLE_QUOTES>;
         };
+
+        tab_dance_period_yen: tab_dance_period_yen {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TAB_DANCE_PERIOD_YEN";
+            #binding-cells = <0>;
+            bindings = <&kp PERIOD>, <&kp BACKSLASH>;
+        };
     };
 
     macros {
@@ -139,6 +191,20 @@
             #binding-cells = <0>;
             bindings = <&kp LS(G) &kp O &kp D &kp COMMA &kp SPACE &kp G &kp R &kp A &kp N &kp T &kp SPACE &kp M &kp E &kp SPACE &kp T &kp H &kp E &kp SPACE &kp S &kp E &kp R &kp E &kp N &kp I &kp T &kp Y &kp SPACE &kp T &kp O &kp SPACE &kp A &kp C &kp C &kp E &kp P &kp T &kp SPACE &kp T &kp H &kp E &kp SPACE &kp T &kp H &kp I &kp N &kp G &kp S &kp SPACE &kp LS(I) &kp SPACE &kp C &kp A &kp N &kp N &kp O &kp T &kp SPACE &kp C &kp H &kp A &kp N &kp G &kp E &kp COMMA &kp SPACE &kp C &kp O &kp U &kp R &kp A &kp G &kp E &kp SPACE &kp T &kp O &kp SPACE &kp C &kp H &kp A &kp N &kp G &kp E &kp SPACE &kp T &kp H &kp E &kp SPACE &kp T &kp H &kp I &kp N &kp G &kp S &kp SPACE &kp LS(I) &kp SPACE &kp C &kp A &kp N &kp COMMA &kp SPACE &kp A &kp N &kp D &kp SPACE &kp W &kp I &kp S &kp D &kp O &kp M &kp SPACE &kp T &kp O &kp SPACE &kp K &kp N &kp O &kp W &kp SPACE &kp T &kp H &kp E &kp SPACE &kp D &kp I &kp F &kp F &kp E &kp R &kp E &kp N &kp C &kp E &kp DOT>;
             label = "MACRO_NIEBUHR";
+        };
+
+        macro_alt_spc_m: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(SPACE) &kp M>;
+            label = "NEW_MACRO";
+        };
+
+        macro_alt_spc_s: new_macro {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(SPACE) &kp S>;
+            label = "NEW_MACRO";
         };
     };
 
@@ -180,7 +246,7 @@
 &none  &none                   &none         &none         &none         &none                                     &none          &none           &none           &none            &none                &none
 &none  &tap_dance_minus_equal  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &tap_dance_slash_percent                  &kp LS(LG(S))  &mkp MB1        &mmv MOVE_UP    &mkp MB2         &kp LG(PRINTSCREEN)  &none
 &none  &kp PLUS                &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp ASTERISK              &none   &none   &mkp MB5       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP         &none
-&none  &kp NUMBER_0            &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp PERIOD                &trans  &trans  &mkp MB4       &mkp MB3        &msc SCRL_LEFT  &msc SCRL_RIGHT  &msc SCRL_DOWN       &none
+&none  &kp NUMBER_0            &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &tab_dance_period_yen     &trans  &trans  &mkp MB4       &mkp MB3        &msc SCRL_LEFT  &msc SCRL_RIGHT  &msc SCRL_DOWN       &none
 &none  &trans                  &trans        &none         &none         &trans                    &trans  &trans  &trans         &none           &none           &trans           &trans               &none
             >;
         };
@@ -197,11 +263,11 @@
 
         layer_5 {
             bindings = <
-&none  &none   &none   &none  &none  &none                            &none   &none   &none   &none   &none   &none
-&none  &kp Q   &kp W   &kp E  &kp R  &kp T                            &trans  &trans  &trans  &trans  &trans  &none
-&none  &kp A   &kp S   &kp D  &kp F  &kp G            &none   &none   &trans  &trans  &trans  &trans  &trans  &none
-&none  &kp Z   &kp X   &kp C  &kp V  &kp B            &to 0   &trans  &trans  &trans  &trans  &trans  &trans  &none
-&none  &trans  &trans  &none  &none  &mt LCTRL SPACE  &trans  &trans  &trans  &none   &none   &trans  &trans  &none
+&none  &none   &none   &none  &none  &none                            &none           &none         &none         &none         &none         &none
+&none  &kp Q   &kp W   &kp E  &kp R  &kp T                            &bt BT_CLR_ALL  &none         &none         &none         &bt BT_CLR    &none
+&none  &kp A   &kp S   &kp D  &kp F  &kp G            &none   &none   &bt BT_SEL 0    &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4  &none
+&none  &kp Z   &kp X   &kp C  &kp V  &kp B            &to 0   &trans  &none           &none         &bt BT_PRV    &bt BT_NXT    &none         &none
+&none  &trans  &trans  &none  &none  &mt LCTRL SPACE  &trans  &trans  &trans          &none         &none         &trans        &trans        &none
             >;
         };
     };
