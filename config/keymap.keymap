@@ -298,7 +298,7 @@
 &none  &none             &none      &none       &none      &none                              &none          &none           &none           &none            &none            &none
 &none  &kp F4            &kp LC(W)  &kp ESCAPE  &kp ENTER  &tap_dance_f1_f11                  &kp CAPSLOCK   &kp HOME        &kp UP_ARROW    &kp END          &kp PRINTSCREEN  &none
 &none  &kp LC(A)         &kp LC(S)  &kp DELETE  &kp LC(F)  &tap_dance_f2_f3   &none   &none   &kp BACKSPACE  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp DELETE       &none
-&none  &tap_dance_cz_cy  &kp LC(X)  &kp LC(C)   &kp LC(V)  &kp BACKSPACE      &trans  &trans  &kp ESCAPE     &kp ENTER       &kp PAGE_UP     &kp PAGE_DOWN    &kp GRAVE    　　&none
+&none  &tap_dance_cz_cy  &kp LC(X)  &kp LC(C)   &kp LC(V)  &kp BACKSPACE      &trans  &trans  &kp ESCAPE     &kp ENTER       &kp PAGE_UP     &kp PAGE_DOWN    &kp GRAVE      　&none
 &none  &trans            &trans     &none       &none      &trans             &trans  &trans  &trans         &none           &none           &trans           &trans           &none
             >;
         };
