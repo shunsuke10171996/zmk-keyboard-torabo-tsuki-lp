@@ -54,6 +54,8 @@
     tapping-term-ms = <180>;
 };
 
+&caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE A>; };
+
 / {
     combos {
         compatible = "zmk,combos";
@@ -103,7 +105,7 @@
             key-positions = <39 41>;
         };
 
-        combo_win_l {
+        combo_caps_word {
             bindings = <&caps_word>;
             key-positions = <40 41>;
         };
