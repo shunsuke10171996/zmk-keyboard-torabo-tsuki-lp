@@ -300,7 +300,7 @@
 &none  &kp Q             &kp W         &kp E  &kp R  &kp T                                                            &kp Y             &kp U  &kp I                   &kp O                &kp P                        &none
 &none  &kp A             &kp S         &kp D  &kp F  &kp G               &none                 &none                  &kp H             &kp J  &kp K                   &kp L                &mod_morph_minus_underscore  &none
 &none  &kp Z             &kp X         &kp C  &kp V  &kp B               &to 5                 &out OUT_TOG           &kp N             &kp M  &mod_morph_exclamation  &mod_morph_question  &kp F10                      &none
-&none  &mt LEFT_ALT TAB  &kp LEFT_WIN  &none  &none  &lt 2 INT_MUHENKAN  &mt LEFT_SHIFT SPACE  &mt RIGHT_SHIFT SPACE  &lt 3 INT_HENKAN  &none  &none                   &kp QUESTION         &mt RIGHT_CONTROL TAB        &none
+&none  &mt LEFT_ALT TAB  &kp LEFT_WIN  &none  &none  &lt 2 INT_MUHENKAN  &mt LEFT_SHIFT SPACE  &mt RIGHT_SHIFT SPACE  &lt 3 INT_HENKAN  &none  &none                   &kp F2               &mt RIGHT_CONTROL TAB        &none
             >;
         };
 
