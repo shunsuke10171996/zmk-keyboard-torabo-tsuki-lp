@@ -15,4 +15,14 @@
         status = "okay";
         input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 128>;
      };
+
+    zip_xy_to_scroll_mapper: zip_xy_to_scroll_mapper {
+        compatible = "zmk,input-processor-xy-to-scroll";
+        #input-processor-cells = <0>;
+        
+        // Y軸の動きを垂直スクロールにマッピング
+        y-output-code = <INPUT_REL_WHEEL>;
+        // X軸の動きを無効化（水平スクロールを抑制）
+        x-output-code = <INPUT_REL_NONE>;
+    };
 };
