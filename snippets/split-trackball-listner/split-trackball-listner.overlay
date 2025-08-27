@@ -13,16 +13,27 @@
         compatible = "zmk,input-listener";
         device = <&trackball_split>;
         status = "okay";
-        input-processors = <&zip_xy_to_scroll_mapper>, <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, <&zip_scroll_scaler 1 128>;
-     };
+        // 正しい記述: 各プロセッサを個別のノードとして定義し、&で参照する
+        input-processors = <&zip_xy_to_scroll_mapper>, <&transform_x_inverted>, <&scale_128>;
+    };
 
+    // XY軸をスクロールに変換するプロセッサ
     zip_xy_to_scroll_mapper: zip_xy_to_scroll_mapper {
         compatible = "zmk,input-processor-xy-to-scroll";
         #input-processor-cells = <0>;
-        
-        // Y軸の動きを垂直スクロールにマッピング
         y-output-code = <INPUT_REL_WHEEL>;
-        // X軸の動きを無効化（水平スクロールを抑制）
         x-output-code = <INPUT_REL_NONE>;
+    };
+    
+    // スクロール方向を反転させるプロセッサを定義
+    transform_x_inverted: transform_x_inverted {
+        compatible = "zmk,input-processor-scroll-transform";
+        scroll-transform = <INPUT_TRANSFORM_X_INVERT>;
+    };
+
+    // スクロールの感度を調整するプロセッサを定義
+    scale_128: scale_128 {
+        compatible = "zmk,input-processor-scroll-scaler";
+        scale = <128>;
     };
 };
