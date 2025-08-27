@@ -54,7 +54,7 @@
     tapping-term-ms = <180>;
 };
 
-&caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE A>; };
+&caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE JP_UNDER>; };
 
 / {
     combos {
