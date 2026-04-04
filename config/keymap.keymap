@@ -388,15 +388,26 @@
         input-processors = 
             <&zip_xy_to_scroll_mapper>, 
             <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
-            <&zip_scroll_scaler 1 128>;
+            <&zip_scroll_scaler 1 800>;
     };
 };
 // 左手（Peripheral ）の設定
-#if defined(CONFIG_SHIELD_TORABO_TSUKI_LP_RIGHT)
-&pointing_device_split_listener {
-    input-processors = 
-        <&zip_xy_to_scroll_mapper>, 
-        <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
-        <&zip_scroll_scaler 1 128>;
+/ {
+    /* 1. 本家の標準設定（カーソル移動）を停止させる */
+    #if defined(CONFIG_SHIELD_TORABO_TSUKI_LP_RIGHT)
+    &pointing_device_split_listener {
+        status = "disabled";
+    };
+    #endif
+    /* 2. 自分専用のスクロール専用リスナーを定義する */
+    my_split_listener {
+        status = "okay";
+        compatible = "zmk,input-listener";
+        // 本家の通信ノード（pointing_device_split）からデータを受け取る
+        device = <&pointing_device_split>; 
+        input-processors = 
+            <&zip_xy_to_scroll_mapper>, 
+            <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
+            <&zip_scroll_scaler 1 128>;
+    };
 };
-#endif
