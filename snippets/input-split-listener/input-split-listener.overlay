@@ -12,12 +12,14 @@
     x_scaler_null: x_scaler_null {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = "relative";
+        type = <INPUT_PROCESSOR_TYPE_RELATIVE>;
+        codes = <INPUT_REL_X>;
     };
     y_scaler_null: y_scaler_null {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = "relative";
+        type = <INPUT_PROCESSOR_TYPE_RELATIVE>;
+        codes = <INPUT_REL_Y>;
     };
 
     pointing_device_split_listener: pointing_device_split_listener {
