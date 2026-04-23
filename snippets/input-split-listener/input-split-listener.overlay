@@ -9,23 +9,19 @@
         };
     };
 
-    /* 
-     * 軸を無効化するためのスケーラー定義
-     * type = <0x02> は INPUT_EV_REL (マウス移動/スクロール) を指します
-     */
-    /* X軸(0x00)と横スクロール(0x06)を無効化 */
-    x_nuller: x_nuller {
+    /* 各軸の入力を制御するためのスケーラー定義 */
+    x_scaler: x_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = <0x02>;
-        codes = <0x00 0x06>;
+        type = <0x02>; /* EV_REL */
+        codes = <0x00 0x06>; /* X軸 / 横スクロール */
     };
-    /* Y軸(0x01)と縦スクロール(0x08)を無効化 */
-    y_nuller: y_nuller {
+
+    y_scaler: y_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = <0x02>;
-        codes = <0x01 0x08>;
+        type = <0x02>; /* EV_REL */
+        codes = <0x01 0x08>; /* Y軸 / 縦スクロール */
     };
 
     pointing_device_split_listener: pointing_device_split_listener {
@@ -33,17 +29,17 @@
         device = <&pointing_device_split>;
         status = "okay";
         input-processors = 
-            <&x_nuller 0 1>,
+            <&x_scaler 0 1>,
             <&zip_xy_to_scroll_mapper>, 
             <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
             <&zip_scroll_scaler 1 4>;
         scroller {
             layers = <3>;
             input-processors = 
-                <&y_nuller 0 1>,
+                <&y_scaler 0 1>,
                 <&zip_xy_to_scroll_mapper>, 
                 <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
-                <&zip_scroll_scaler 1 2>;
+                <&zip_scroll_scaler 1 4>; /* <&zip_scroll_scaler 1 2>;で速度が倍になる*/
         };
      };
 };
