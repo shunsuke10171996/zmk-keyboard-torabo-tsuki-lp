@@ -9,17 +9,18 @@
         };
     };
 
+    /* 直接数値で定義（0: Relative, 0x00: X軸, 0x01: Y軸） */
     x_scaler_null: x_scaler_null {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = <INPUT_PROCESSOR_TYPE_RELATIVE>;
-        codes = <INPUT_REL_X>;
+        type = <0>;
+        codes = <0x00>;
     };
     y_scaler_null: y_scaler_null {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = <INPUT_PROCESSOR_TYPE_RELATIVE>;
-        codes = <INPUT_REL_Y>;
+        type = <0>;
+        codes = <0x01>;
     };
 
     pointing_device_split_listener: pointing_device_split_listener {
