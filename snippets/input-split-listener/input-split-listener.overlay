@@ -9,18 +9,19 @@
         };
     };
 
-    /* 直接数値で定義（0: Relative, 0x00: X軸, 0x01: Y軸） */
-    x_scaler_null: x_scaler_null {
+    /* スクロール信号(type 1)を対象にするスケーラー */
+    /* 0x06: REL_HWHEEL (横), 0x08: REL_WHEEL (縦) */
+    horiz_scroll_scaler: horiz_scroll_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = <0>;
-        codes = <0x00>;
+        type = <1>;
+        codes = <0x06>;
     };
-    y_scaler_null: y_scaler_null {
+    vert_scroll_scaler: vert_scroll_scaler {
         compatible = "zmk,input-processor-scaler";
         #input-processor-cells = <2>;
-        type = <0>;
-        codes = <0x01>;
+        type = <1>;
+        codes = <0x08>;
     };
 
     pointing_device_split_listener: pointing_device_split_listener {
@@ -28,15 +29,15 @@
         device = <&pointing_device_split>;
         status = "okay";
         input-processors = 
-            <&x_scaler_null 0 1>, 
             <&zip_xy_to_scroll_mapper>, 
+            <&horiz_scroll_scaler 0 1>, 
             <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
             <&zip_scroll_scaler 1 4>;
         scroller {
             layers = <3>;
             input-processors = 
-                <&y_scaler_null 0 1>, 
                 <&zip_xy_to_scroll_mapper>, 
+                <&vert_scroll_scaler 0 1>, 
                 <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
                 <&zip_scroll_scaler 1 2>;
         };
