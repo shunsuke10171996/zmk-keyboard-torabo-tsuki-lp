@@ -35,7 +35,6 @@
         input-processors = 
             <&x_nuller 0 1>,
             <&zip_xy_to_scroll_mapper>, 
-            <&horiz_scroll_scaler 0 1>, 
             <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
             <&zip_scroll_scaler 1 4>;
         scroller {
@@ -43,7 +42,6 @@
             input-processors = 
                 <&y_nuller 0 1>,
                 <&zip_xy_to_scroll_mapper>, 
-                <&vert_scroll_scaler 0 1>, 
                 <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
                 <&zip_scroll_scaler 1 2>;
         };
