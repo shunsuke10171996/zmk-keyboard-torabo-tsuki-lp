@@ -28,18 +28,22 @@
         compatible = "zmk,input-listener";
         device = <&pointing_device_split>;
         status = "okay";
+
+        /* デフォルト：上下方向のみ (X軸方向の入力を 0倍にする) */
         input-processors = 
             <&x_scaler 0 1>,
             <&zip_xy_to_scroll_mapper>, 
             <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
             <&zip_scroll_scaler 1 4>;
+
         scroller {
             layers = <3>;
+            /* レイヤー3：左右方向のみ (Y軸方向の入力を 0倍にする) */
             input-processors = 
                 <&y_scaler 0 1>,
                 <&zip_xy_to_scroll_mapper>, 
                 <&zip_scroll_transform (INPUT_TRANSFORM_X_INVERT)>, 
-                <&zip_scroll_scaler 1 4>; /* <&zip_scroll_scaler 1 2>;で速度が倍になる*/
+                <&zip_scroll_scaler 1 2>;
         };
      };
 };
