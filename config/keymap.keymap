@@ -110,62 +110,62 @@
             key-positions = <40 41>;
         };
 
-        macro_alt_win_4 {
+        combo_alt_win_4 {
             bindings = <&kp LA(LG(NUMBER_4))>;
             key-positions = <33 34>;
         };
 
-        macro_alt_win_5 {
+        combo_alt_win_5 {
             bindings = <&kp LA(LG(NUMBER_5))>;
             key-positions = <34 35>;
         };
 
-        macro_alt_win_6 {
+        combo_alt_win_6 {
             bindings = <&kp LA(LG(NUMBER_6))>;
             key-positions = <35 36>;
         };
 
-        macro_ctl_sft_a {
+        combo_ctl_sft_a {
             bindings = <&kp LS(LC(A))>;
             key-positions = <33 35>;
         };
 
-        macro_alt_e {
+        combo_alt_e {
             bindings = <&kp LA(E)>;
             key-positions = <34 36>;
         };
 
-        macro_alt_d {
+        combo_alt_d {
             bindings = <&kp LA(D)>;
             key-positions = <33 36>;
         };
 
-        macro_ctl_t {
+        combo_ctl_t {
             bindings = <&kp LC(T)>;
             key-positions = <47 49>;
         };
 
-        macro_ctl_w {
+        combo_ctl_w {
             bindings = <&kp LC(W)>;
             key-positions = <48 50>;
         };
 
-        macro_ctl_sft_t {
+        combo_ctl_sft_t {
             bindings = <&kp LS(LC(T))>;
             key-positions = <48 49>;
         };
 
-        macro_ctl_sft_o {
+        combo_ctl_sft_o {
             bindings = <&kp LS(LC(O))>;
             key-positions = <47 50>;
         };
 
-        macro_ctl_pgup {
+        combo_ctl_pgup {
             bindings = <&kp LC(PAGE_UP)>;
             key-positions = <47 48>;
         };
 
-        macro_ctl_pgdown {
+        combo_ctl_pgdown {
             bindings = <&kp LC(PAGE_DOWN)>;
             key-positions = <49 50>;
         };
@@ -305,11 +305,11 @@
 
         layer_0 {
             bindings = <
-&none  &none             &none         &none  &none  &none                                                              &none             &none  &none                   &none                &none                        &none
-&none  &kp Q             &kp W         &kp E  &kp R  &kp T                                                              &kp Y             &kp U  &kp I                   &kp O                &kp P                        &none
-&none  &kp A             &kp S         &kp D  &kp F  &kp G               &none                   &none                  &kp H             &kp J  &kp K                   &kp L                &mod_morph_minus_underscore  &none
-&none  &kp Z             &kp X         &kp C  &kp V  &kp B               &macro_memo_mac_toggle  &mo 5                  &kp N             &kp M  &mod_morph_exclamation  &mod_morph_question  &kp F10                      &none
-&none  &mt LEFT_ALT TAB  &kp LEFT_WIN  &none  &none  &lt 2 INT_MUHENKAN  &mt LEFT_SHIFT SPACE    &mt RIGHT_SHIFT SPACE  &lt 3 INT_HENKAN  &none  &none                   &lt 3 K_APPLICATION  &mt RIGHT_CONTROL TAB        &none
+&none  &none             &none         &none  &none  &none                                                              &none             &none  &none                    &none                &none                        &none
+&none  &kp Q             &kp W         &kp E  &kp R  &kp T                                                              &kp Y             &kp U  &kp I                    &kp O                &kp P                        &none
+&none  &kp A             &kp S         &kp D  &kp F  &kp G                               &none                  &none   &kp H             &kp J  &kp K                    &kp L                &mod_morph_minus_underscore  &none
+&none  &kp Z             &kp X         &kp C  &kp V  &kp B                               &macro_memo_mac_toggle &mo 5   &kp N             &kp M  &mod_morph_exclamation   &mod_morph_question  &kp F10                      &none
+&none  &mt LEFT_ALT TAB  &kp LEFT_WIN  &none  &none  &lt 2 INT_MUHENKAN                  &mt LEFT_SHIFT SPACE   &mt RIGHT_SHIFT SPACE &lt 3 INT_HENKAN &none  &none                    &lt 3 K_APPLICATION  &mt RIGHT_CONTROL TAB        &none
             >;
         };
 
@@ -325,31 +325,31 @@
 
         layer_2 {
             bindings = <
-&none  &none             &none      &none       &none      &none                              &none                &none           &none           &none            &none            &none
-&none  &kp F4            &kp LC(W)  &kp ESCAPE  &kp ENTER  &tap_dance_f1_f11                  &kp LG(PRINTSCREEN)  &kp HOME        &kp UP_ARROW    &kp END          &kp PRINTSCREEN  &none
-&none  &kp LC(A)         &kp LC(S)  &kp DELETE  &kp LC(F)  &tap_dance_f2_f3   &none   &none   &kp BACKSPACE        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp DELETE       &none
-&none  &tap_dance_cz_cy  &kp LC(X)  &kp LC(C)   &kp LC(V)  &kp BACKSPACE      &trans  &trans  &kp ESCAPE           &kp ENTER       &kp PAGE_UP     &kp PAGE_DOWN    &kp JP_ZKHK      &none
-&none  &trans            &trans     &none       &none      &trans             &trans  &trans  &trans               &none           &none           &trans           &trans           &none
+&none  &none             &none      &none       &none      &none                              &none                &none            &none           &none            &none            &none
+&none  &kp F4            &kp LC(W)  &kp ESCAPE  &kp ENTER  &tap_dance_f1_f11                  &kp LG(PRINTSCREEN)  &kp HOME         &kp UP_ARROW    &kp END          &kp PRINTSCREEN  &none
+&none  &kp LC(A)         &kp LC(S)  &kp DELETE  &kp LC(F)  &tap_dance_f2_f3   &none   &none   &kp BACKSPACE        &kp LEFT_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp DELETE       &none
+&none  &tap_dance_cz_cy  &kp LC(X)  &kp LC(C)   &kp LC(V)  &kp BACKSPACE      &trans  &trans  &kp ESCAPE           &kp ENTER        &kp PAGE_UP     &kp PAGE_DOWN    &kp JP_ZKHK      &none
+&none  &trans            &trans     &none       &none      &trans             &trans  &trans  &trans               &none            &none           &trans           &trans           &none
             >;
         };
 
         layer_3 {
             bindings = <
-&none  &none                   &none         &none         &none         &none                                     &none          &none           &none           &none            &none            &none
-&none  &kp JP_PLUS             &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp JP_ASTRK                              &kp CAPSLOCK   &mkp MB1        &mmv MOVE_UP    &mkp MB2         &kp PAUSE_BREAK  &none
-&none  &tap_dance_minus_equal  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &tap_dance_slash_percent  &none   &none   &mkp MB5       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP     &none
-&none  &kp NUMBER_0            &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &tap_dance_period_comma   &trans  &trans  &mkp MB4       &mkp MB3        &msc SCRL_LEFT  &msc SCRL_RIGHT  &msc SCRL_DOWN   &none
-&none  &trans                  &trans        &none         &none         &trans                    &trans  &trans  &trans         &none           &none           &trans           &trans           &none
+&none  &none                   &none         &none         &none         &none                                     &none          &none            &none           &none            &none            &none
+&none  &kp JP_PLUS             &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp JP_ASTRK                              &kp CAPSLOCK   &mkp MB1         &mmv MOVE_UP    &mkp MB2         &kp PAUSE_BREAK  &none
+&none  &tap_dance_minus_equal  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &tap_dance_slash_percent  &none   &none   &mkp MB5       &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP     &none
+&none  &kp NUMBER_0            &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &tap_dance_period_comma   &trans  &trans  &mkp MB4       &mkp MB3         &msc SCRL_LEFT  &msc SCRL_RIGHT  &msc SCRL_DOWN   &none
+&none  &trans                  &trans        &none         &none         &trans                    &trans  &trans  &trans         &none            &none           &trans           &trans           &none
             >;
         };
 
         layer_4 {
             bindings = <
-&none  &none           &none                            &none             &none         &none                   &none    &none                     &none        &none        &none         &none
-&none  &kp LALT        &kp LESS_THAN                    &kp GREATER_THAN  &kp JP_TILDE  &kp F5                  &kp F6   &kp JP_CARET              &kp JP_LPAR  &kp JP_RPAR  &kp DOLLAR    &none
-&none  &kp LCTRL       &tap_dance_exclamation_question  &kp JP_EQUAL      &kp JP_AT     &kp F7  &none   &none   &kp F8   &tap_dance_single_double  &kp JP_LBKT  &kp JP_RBKT  &kp JP_GRAVE  &none
-&none  &kp LEFT_SHIFT  &kp JP_AMPS                      &kp JP_PIPE       &kp HASH      &kp F9  &trans  &trans  &kp F12  &kp SLASH                 &kp JP_LBRC  &kp JP_RBRC  &kp JP_BSLH   &none
-&none  &trans          &trans                           &none             &none         &trans  &trans  &trans  &trans   &none                     &none        &trans       &trans        &none
+&none  &none           &none                            &none             &none         &none                  &none    &none                      &none        &none        &none         &none
+&none  &kp LALT        &kp LESS_THAN                    &kp GREATER_THAN  &kp JP_TILDE  &kp F5                 &kp F6   &kp JP_CARET               &kp JP_LPAR  &kp JP_RPAR  &kp DOLLAR    &none
+&none  &kp LCTRL       &tap_dance_exclamation_question  &kp JP_EQUAL      &kp JP_AT     &kp F7  &none   &none  &kp F8   &tap_dance_single_double  &kp JP_LBKT  &kp JP_RBKT  &kp JP_GRAVE  &none
+&none  &kp LEFT_SHIFT  &kp JP_AMPS                      &kp JP_PIPE       &kp HASH      &kp F9  &trans  &trans &kp F12  &kp SLASH                  &kp JP_LBRC  &kp JP_RBRC  &kp JP_BSLH   &none
+&none  &trans          &trans                           &none             &none         &trans  &trans  &trans &trans   &none                      &none        &trans       &trans        &none
             >;
         };
 
@@ -357,9 +357,9 @@
             bindings = <
 &none  &none   &none   &none  &none            &none                          &none         &none         &none         &none         &none           &none
 &none  &kp Q   &kp W   &kp E  &kp R            &kp T                          &none         &none         &out OUT_BLE  &out OUT_USB  &bt BT_CLR_ALL  &none
-&none  &kp A   &kp S   &kp D  &macro_passhead  &kp G          &none   &none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none
-&none  &kp Z   &kp X   &kp C  &kp V            &kp B          &trans  &trans  &none         &none         &bt BT_PRV    &bt BT_NXT    &bt BT_CLR      &none
-&none  &trans  &trans  &none  &none            &mt LCTRL TAB  &trans  &trans  &none         &none         &none         &none         &none           &none
+&none  &kp A   &kp S   &kp D  &macro_passhead  &kp G           &none   &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none
+&none  &kp Z   &kp X   &kp C  &kp V            &kp B           &trans  &trans &none         &none         &bt BT_PRV    &bt BT_NXT    &bt BT_CLR      &none
+&none  &trans  &trans  &none  &none            &mt LCTRL TAB   &trans  &trans &none         &none         &none         &none         &none           &none
             >;
         };
     };
