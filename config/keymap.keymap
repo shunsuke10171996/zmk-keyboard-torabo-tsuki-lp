@@ -262,11 +262,11 @@
             bindings = <&kp JP_SQT>, <&kp JP_DQT>;
         };
 
-        tab_dance_period_yen: tab_dance_period_yen {
+        tap_dance_period_comma: tap_dance_period_comma {
             compatible = "zmk,behavior-tap-dance";
-            label = "TAB_DANCE_PERIOD_YEN";
+            label = "TAP_DANCE_PERIOD_COMMA";
             #binding-cells = <0>;
-            bindings = <&kp PERIOD>, <&kp JP_YEN>;
+            bindings = <&kp PERIOD>, <&kp COMMA>;
         };
     };
 
@@ -291,6 +291,13 @@
             bindings = <&none &kp LS(T) &kp JP_AT &kp K &kp N3>;
             label = "MACRO_PASSHEAD";
         };
+
+        macro_memo_mac_toggle: macro_memo_mac_toggle {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&none &kp LS(C) &kp O &kp N &kp S &kp I &kp D &kp E &kp E &kp R &kp I &kp N &kp G &kp SPACE &kp A &kp SPACE &kp L &kp A &kp Y &kp E &kp R &kp SPACE &kp C &kp O &kp N &kp F &kp I &kp G &kp U &kp R &kp A &kp T &kp I &kp O &kp N &kp SPACE &kp B &kp A &kp S &kp E &kp D &kp SPACE &kp O &kp N &kp SPACE &kp T &kp O &kp G &kp G &kp L &kp E &kp SPACE &kp S &kp W &kp I &kp T &kp C &kp H &kp I &kp N &kp G &kp SPACE &kp W &kp I &kp T &kp H &kp SPACE &kp A &kp N &kp SPACE &kp E &kp Y &kp E &kp SPACE &kp T &kp O &kp SPACE &kp W &kp I &kp T &kp H &kp O &kp U &kp T &kp SPACE &kp M &kp A &kp C &kp SPACE &kp C &kp O &kp N &kp F &kp I &kp G &kp U &kp R &kp A &kp T &kp I &kp O &kp N &kp SPACE &kp B &kp A &kp S &kp E &kp D &kp SPACE &kp O &kp N &kp SPACE &kp T &kp O &kp G &kp G &kp L &kp E &kp SPACE &kp S &kp W &kp I &kp T &kp C &kp H &kp I &kp N &kp G &kp SPACE &kp W &kp I &kp T &kp H &kp SPACE &kp A &kp N &kp SPACE &kp E &kp Y &kp E &kp SPACE &kp T &kp O &kp SPACE &kp W &kp I &kp T &kp H &kp O &kp U &kp T &kp SPACE &kp M &kp A &kp C &kp SPACE &kp C &kp O &kp M &kp P &kp A &kp T &kp I &kp B &kp I &kp L &kp I &kp T &kp Y &kp DOT &kp SPACE &kp LS(H) &kp O &kp W &kp E &kp V &kp E &kp R &kp JP_COMMA &kp SPACE &kp A &kp S &kp SPACE &kp T &kp H &kp E &kp R &kp E &kp SPACE &kp I &kp S &kp SPACE &kp C &kp U &kp R &kp R &kp E &kp N &kp T &kp L &kp Y &kp SPACE &kp L &kp I &kp T &kp T &kp L &kp Y &kp SPACE &kp N &kp E &kp E &kp D &kp SPACE &kp F &kp O &kp R &kp SPACE &kp I &kp T &kp JP_COMMA &kp SPACE &kp I &kp M &kp P &kp L &kp E &kp M &kp E &kp N &kp T &kp A &kp T &kp I &kp O &kp N &kp SPACE &kp W &kp I &kp L &kp L &kp SPACE &kp B &kp E &kp SPACE &kp D &kp E &kp F &kp E &kp R &kp R &kp E &kp D &kp SPACE &kp U &kp N &kp T &kp L &kp Y &kp SPACE &kp R &kp E &kp Q &kp U &kp I &kp R &kp E &kp D &kp DOT>;
+            label = "MEMO_MAC_TOGGLE";
+        };
     };
 
     keymap {
@@ -298,11 +305,11 @@
 
         layer_0 {
             bindings = <
-&none  &none             &none         &none  &none  &none                                                            &none             &none  &none                   &none                &none                        &none
-&none  &kp Q             &kp W         &kp E  &kp R  &kp T                                                            &kp Y             &kp U  &kp I                   &kp O                &kp P                        &none
-&none  &kp A             &kp S         &kp D  &kp F  &kp G               &none                 &none                  &kp H             &kp J  &kp K                   &kp L                &mod_morph_minus_underscore  &none
-&none  &kp Z             &kp X         &kp C  &kp V  &kp B               &mo 5                 &mo 6                  &kp N             &kp M  &mod_morph_exclamation  &mod_morph_question  &kp F10                      &none
-&none  &mt LEFT_ALT TAB  &kp LEFT_WIN  &none  &none  &lt 2 INT_MUHENKAN  &mt LEFT_SHIFT SPACE  &mt RIGHT_SHIFT SPACE  &lt 3 INT_HENKAN  &none  &none                   &lt 3 K_APPLICATION  &mt RIGHT_CONTROL TAB        &none
+&none  &none             &none         &none  &none  &none                                                              &none             &none  &none                   &none                &none                        &none
+&none  &kp Q             &kp W         &kp E  &kp R  &kp T                                                              &kp Y             &kp U  &kp I                   &kp O                &kp P                        &none
+&none  &kp A             &kp S         &kp D  &kp F  &kp G               &none                   &none                  &kp H             &kp J  &kp K                   &kp L                &mod_morph_minus_underscore  &none
+&none  &kp Z             &kp X         &kp C  &kp V  &kp B               &macro_memo_mac_toggle  &mo 5                  &kp N             &kp M  &mod_morph_exclamation  &mod_morph_question  &kp F10                      &none
+&none  &mt LEFT_ALT TAB  &kp LEFT_WIN  &none  &none  &lt 2 INT_MUHENKAN  &mt LEFT_SHIFT SPACE    &mt RIGHT_SHIFT SPACE  &lt 3 INT_HENKAN  &none  &none                   &lt 3 K_APPLICATION  &mt RIGHT_CONTROL TAB        &none
             >;
         };
 
@@ -318,28 +325,28 @@
 
         layer_2 {
             bindings = <
-&none  &none             &none      &none       &none      &none                              &none          &none           &none           &none            &none            &none
-&none  &kp F4            &kp LC(W)  &kp ESCAPE  &kp ENTER  &tap_dance_f1_f11                  &kp CAPSLOCK   &kp HOME        &kp UP_ARROW    &kp END          &kp PRINTSCREEN  &none
-&none  &kp LC(A)         &kp LC(S)  &kp DELETE  &kp LC(F)  &tap_dance_f2_f3   &none   &none   &kp BACKSPACE  &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp DELETE       &none
-&none  &tap_dance_cz_cy  &kp LC(X)  &kp LC(C)   &kp LC(V)  &kp BACKSPACE      &trans  &trans  &kp ESCAPE     &kp ENTER       &kp PAGE_UP     &kp PAGE_DOWN    &kp JP_ZKHK      &none
-&none  &trans            &trans     &none       &none      &trans             &trans  &trans  &trans         &none           &none           &trans           &trans           &none
+&none  &none             &none      &none       &none      &none                              &none                &none           &none           &none            &none            &none
+&none  &kp F4            &kp LC(W)  &kp ESCAPE  &kp ENTER  &tap_dance_f1_f11                  &kp LG(PRINTSCREEN)  &kp HOME        &kp UP_ARROW    &kp END          &kp PRINTSCREEN  &none
+&none  &kp LC(A)         &kp LC(S)  &kp DELETE  &kp LC(F)  &tap_dance_f2_f3   &none   &none   &kp BACKSPACE        &kp LEFT_ARROW  &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp DELETE       &none
+&none  &tap_dance_cz_cy  &kp LC(X)  &kp LC(C)   &kp LC(V)  &kp BACKSPACE      &trans  &trans  &kp ESCAPE           &kp ENTER       &kp PAGE_UP     &kp PAGE_DOWN    &kp JP_ZKHK      &none
+&none  &trans            &trans     &none       &none      &trans             &trans  &trans  &trans               &none           &none           &trans           &trans           &none
             >;
         };
 
         layer_3 {
             bindings = <
-&none  &none                   &none         &none         &none         &none                                     &none          &none           &none           &none            &none                &none
-&none  &tap_dance_minus_equal  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &tap_dance_slash_percent                  &kp LS(LG(S))  &mkp MB1        &mmv MOVE_UP    &mkp MB2         &kp LG(PRINTSCREEN)  &none
-&none  &kp JP_PLUS             &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &kp JP_ASTRK              &none   &none   &mkp MB5       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP         &none
-&none  &kp NUMBER_0            &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &tab_dance_period_yen     &trans  &trans  &mkp MB4       &mkp MB3        &msc SCRL_LEFT  &msc SCRL_RIGHT  &msc SCRL_DOWN       &none
-&none  &trans                  &trans        &none         &none         &trans                    &trans  &trans  &trans         &none           &none           &trans           &trans               &none
+&none  &none                   &none         &none         &none         &none                                     &none          &none           &none           &none            &none            &none
+&none  &kp JP_PLUS             &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp JP_ASTRK                              &kp CAPSLOCK   &mkp MB1        &mmv MOVE_UP    &mkp MB2         &kp PAUSE_BREAK  &none
+&none  &tap_dance_minus_equal  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &tap_dance_slash_percent  &none   &none   &mkp MB5       &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP     &none
+&none  &kp NUMBER_0            &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &tap_dance_period_comma   &trans  &trans  &mkp MB4       &mkp MB3        &msc SCRL_LEFT  &msc SCRL_RIGHT  &msc SCRL_DOWN   &none
+&none  &trans                  &trans        &none         &none         &trans                    &trans  &trans  &trans         &none           &none           &trans           &trans           &none
             >;
         };
 
         layer_4 {
             bindings = <
 &none  &none           &none                            &none             &none         &none                   &none    &none                     &none        &none        &none         &none
-&none  &kp LEFT_WIN    &kp LESS_THAN                    &kp GREATER_THAN  &kp JP_TILDE  &kp F5                  &kp F6   &kp JP_CARET              &kp JP_LPAR  &kp JP_RPAR  &kp DOLLAR    &none
+&none  &kp LALT        &kp LESS_THAN                    &kp GREATER_THAN  &kp JP_TILDE  &kp F5                  &kp F6   &kp JP_CARET              &kp JP_LPAR  &kp JP_RPAR  &kp DOLLAR    &none
 &none  &kp LCTRL       &tap_dance_exclamation_question  &kp JP_EQUAL      &kp JP_AT     &kp F7  &none   &none   &kp F8   &tap_dance_single_double  &kp JP_LBKT  &kp JP_RBKT  &kp JP_GRAVE  &none
 &none  &kp LEFT_SHIFT  &kp JP_AMPS                      &kp JP_PIPE       &kp HASH      &kp F9  &trans  &trans  &kp F12  &kp SLASH                 &kp JP_LBRC  &kp JP_RBRC  &kp JP_BSLH   &none
 &none  &trans          &trans                           &none             &none         &trans  &trans  &trans  &trans   &none                     &none        &trans       &trans        &none
@@ -348,21 +355,11 @@
 
         layer_5 {
             bindings = <
-&none  &none   &none   &none  &none            &none                          &none   &none  &none  &none   &none   &none
-&none  &kp Q   &kp W   &kp E  &kp R            &kp T                          &none   &none  &none  &none   &none   &none
-&none  &kp A   &kp S   &kp D  &macro_passhead  &kp G          &none   &none   &none   &none  &none  &none   &none   &none
-&none  &kp Z   &kp X   &kp C  &kp V            &kp B          &none   &none   &none   &none  &none  &none   &none   &none
-&none  &trans  &trans  &none  &none            &mt LCTRL TAB  &trans  &trans  &trans  &none  &none  &trans  &trans  &none
-            >;
-        };
-
-        layer_6 {
-            bindings = <
-&none  &none   &none   &none  &none  &none                  &none         &none         &none         &none         &none           &none
-&none  &none   &none   &none  &none  &none                  &none         &none         &out OUT_BLE  &out OUT_USB  &bt BT_CLR_ALL  &none
-&none  &none   &none   &none  &none  &none  &none   &none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none
-&none  &none   &none   &none  &none  &none  &none   &none   &none         &none         &bt BT_PRV    &bt BT_NXT    &bt BT_CLR      &none
-&none  &trans  &trans  &none  &none  &none  &trans  &trans  &none         &none         &none         &trans        &trans          &none
+&none  &none   &none   &none  &none            &none                          &none         &none         &none         &none         &none           &none
+&none  &kp Q   &kp W   &kp E  &kp R            &kp T                          &none         &none         &out OUT_BLE  &out OUT_USB  &bt BT_CLR_ALL  &none
+&none  &kp A   &kp S   &kp D  &macro_passhead  &kp G          &none   &none   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none
+&none  &kp Z   &kp X   &kp C  &kp V            &kp B          &trans  &trans  &none         &none         &bt BT_PRV    &bt BT_NXT    &bt BT_CLR      &none
+&none  &trans  &trans  &none  &none            &mt LCTRL TAB  &trans  &trans  &none         &none         &none         &none         &none           &none
             >;
         };
     };
