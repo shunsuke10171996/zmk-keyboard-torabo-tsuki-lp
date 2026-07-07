@@ -292,11 +292,13 @@
             label = "MACRO_PASSHEAD";
         };
 
-        macro_memo_mac_toggle: macro_memo_mac_toggle {
+        macro_mac_soon: macro_mac_soon {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&none &kp LS(C) &kp O &kp N &kp S &kp I &kp D &kp E &kp E &kp R &kp I &kp N &kp G &kp SPACE &kp A &kp SPACE &kp L &kp A &kp Y &kp E &kp R &kp SPACE &kp C &kp O &kp N &kp F &kp I &kp G &kp U &kp R &kp A &kp T &kp I &kp O &kp N &kp SPACE &kp B &kp A &kp S &kp E &kp D &kp SPACE &kp O &kp N &kp SPACE &kp T &kp O &kp G &kp G &kp L &kp E &kp SPACE &kp S &kp W &kp I &kp T &kp C &kp H &kp I &kp N &kp G &kp SPACE &kp W &kp I &kp T &kp H &kp SPACE &kp A &kp N &kp SPACE &kp E &kp Y &kp E &kp SPACE &kp T &kp O &kp SPACE &kp W &kp I &kp T &kp H &kp O &kp U &kp T &kp SPACE &kp M &kp A &kp C &kp SPACE &kp C &kp O &kp N &kp F &kp I &kp G &kp U &kp R &kp A &kp T &kp I &kp O &kp N &kp SPACE &kp B &kp A &kp S &kp E &kp D &kp SPACE &kp O &kp N &kp SPACE &kp T &kp O &kp G &kp G &kp L &kp E &kp SPACE &kp S &kp W &kp I &kp T &kp C &kp H &kp I &kp N &kp G &kp SPACE &kp W &kp I &kp T &kp H &kp SPACE &kp A &kp N &kp SPACE &kp E &kp Y &kp E &kp SPACE &kp T &kp O &kp SPACE &kp W &kp I &kp T &kp H &kp O &kp U &kp T &kp SPACE &kp M &kp A &kp C &kp SPACE &kp C &kp O &kp M &kp P &kp A &kp T &kp I &kp B &kp I &kp L &kp I &kp T &kp Y &kp DOT &kp SPACE &kp LS(H) &kp O &kp W &kp E &kp V &kp E &kp R &kp JP_COMMA &kp SPACE &kp A &kp S &kp SPACE &kp T &kp H &kp E &kp R &kp E &kp SPACE &kp I &kp S &kp SPACE &kp C &kp U &kp R &kp R &kp E &kp N &kp T &kp L &kp Y &kp SPACE &kp L &kp I &kp T &kp T &kp L &kp Y &kp SPACE &kp N &kp E &kp E &kp D &kp SPACE &kp F &kp O &kp R &kp SPACE &kp I &kp T &kp JP_COMMA &kp SPACE &kp I &kp M &kp P &kp L &kp E &kp M &kp E &kp N &kp T &kp A &kp T &kp I &kp O &kp N &kp SPACE &kp W &kp I &kp L &kp L &kp SPACE &kp B &kp E &kp SPACE &kp D &kp E &kp F &kp E &kp R &kp R &kp E &kp D &kp SPACE &kp U &kp N &kp T &kp L &kp Y &kp SPACE &kp R &kp E &kp Q &kp U &kp I &kp R &kp E &kp D &kp DOT>;
-            label = "MEMO_MAC_TOGGLE";
+            bindings
+                = <&macro_wait_time 10>
+                , <&kp LS(M) &kp A &kp C &kp SPACE &kp LS(L) &kp A &kp Y &kp E &kp R &kp SPACE &kp C &kp O &kp M &kp I &kp N &kp G &kp SPACE &kp S &kp O &kp O &kp N &kp DOT &kp DOT &kp DOT>;
+            label = "MACRO_MAC_SOON";
         };
     };
 
