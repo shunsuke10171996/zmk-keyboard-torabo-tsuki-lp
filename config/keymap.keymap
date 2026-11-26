@@ -79,6 +79,11 @@
  */
 
 / {
+    /*
+     * コンボは layer_0 でのみ有効にする。
+     * 全レイヤーで有効だと、layer_1 の中/右クリック (K/L) や layer_2 の ↓/→ を押したときに
+     * コンボ判定待ち（最大50ms）が入り、反応が一瞬遅れるため。
+     */
     combos {
         compatible = "zmk,combos";
 
@@ -86,12 +91,14 @@
         combo_caps_word {
             bindings = <&caps_word>;
             key-positions = <26 27>;
+            layers = <0>;
         };
 
         /* Kobito: K + L (17 18) */
         combo_key_repeat {
             bindings = <&key_repeat>;
             key-positions = <34 35>;
+            layers = <0>;
         };
     };
 
