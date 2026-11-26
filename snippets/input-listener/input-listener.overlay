@@ -1,6 +1,18 @@
 &pointing_device {
     status = "okay";
 };
+
+/* AML (Auto Mouse Layer) の挙動調整（KobitoKey と同じ設定）
+ * - require-prior-idle-ms: 最後のキー入力から 350ms 以内はボールが動いても layer_1 に入らない
+ *   （タイピング中にボールに触れて J/K/L がクリックに化けるのを防ぐ）
+ * - excluded-positions: layer_1 のクリックキー（J=33, K=34, L=35）を押しても layer_1 を抜けない
+ *   （ダブルクリックやドラッグ中にレイヤーが外れて文字が入力されるのを防ぐ）
+ *   ※ 位置番号は config/keymap.keymap の L Layout 基準。クリックキーを動かしたらここも直すこと
+ */
+&zip_temp_layer {
+    require-prior-idle-ms = <350>;
+    excluded-positions = <33 34 35>;
+};
 &pointing_listener {
     status = "okay";
     device = <&pointing_device>;
