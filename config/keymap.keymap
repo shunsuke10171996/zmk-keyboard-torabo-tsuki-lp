@@ -4,6 +4,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 
+/* 日本語109キーボード用定義 */
 #define JP_ZKHK  GRAVE        // Zenkaku ↔ Hankaku ↔ Kanji (半角 ↔ 全角 ↔ 漢字)
 #define JP_MINUS MINUS        // -
 #define JP_CARET EQUAL        // ^
@@ -56,118 +57,41 @@
 
 &caps_word { continue-list = <UNDERSCORE BACKSPACE DELETE JP_UNDER>; };
 
+/*
+ * KobitoKey_QWERTY のキーマップを torabo-tsuki LP (L Layout, 66ポジション) に移植
+ *
+ * ポジション番号 (L Layout)
+ *   0  1  2  3  4  5              6  7  8  9 10 11     <- 数字行 (未使用)
+ *  12 13 14 15 16 17             18 19 20 21 22 23
+ *  24 25 26 27 28 29 30       31 32 33 34 35 36 37     <- 30/31 は未使用
+ *  38 39 40 41 42 43 44       45 46 47 48 49 50 51     <- 44/45 = 左右の一番内側の独立キー
+ *  52 53 54 55 56 57 58       59 60 61 62 63 64 65     <- 56-58 / 59-61 = 親指キー
+ *
+ * KobitoKey → torabo の対応
+ *   Kobito 上3段の左5列/右5列 → 13-17 / 18-22, 25-29 / 32-36, 39-43 / 46-50
+ *   Kobito 最下段
+ *     Alt/Tab, Win               → 53, 54
+ *     &lt 5 LA(LEFT)             → 44 (左の一番内側の独立キー)
+ *     &lt 2 無変換, Shift/Space  → 57, 58
+ *     Shift/Space, &lt 3 変換    → 59, 60
+ *     &lt 6 LA(RIGHT)            → 45 (右の一番内側の独立キー)
+ *     &lt 3 App, Ctrl/Tab        → 63, 64
+ */
+
 / {
     combos {
         compatible = "zmk,combos";
 
-        combo_alt_spc_m {
-            bindings = <&macro_alt_spc_m>;
-            key-positions = <27 26>;
-        };
-
-        combo_alt_spc_s {
-            bindings = <&macro_alt_spc_s>;
-            key-positions = <26 28>;
-        };
-
-        combo_shift_win_left {
-            bindings = <&kp LS(LG(LEFT_ARROW))>;
-            key-positions = <13 14>;
-        };
-
-        combo_shift_win_right {
-            bindings = <&kp LS(LG(RIGHT_ARROW))>;
-            key-positions = <27 28>;
-        };
-
-        combo_win_tab {
-            bindings = <&kp LG(TAB)>;
-            key-positions = <39 42>;
-        };
-
-        combo_ctl_win_left {
-            bindings = <&kp LC(LG(LEFT_ARROW))>;
-            key-positions = <39 40>;
-        };
-
-        combo_ctl_win_right {
-            bindings = <&kp LC(LG(RIGHT_ARROW))>;
-            key-positions = <42 41>;
-        };
-
-        combo_ctl_win_d {
-            bindings = <&kp LC(LG(D))>;
-            key-positions = <40 42>;
-        };
-
-        combo_ctl_win_f4 {
-            bindings = <&kp LC(LG(F4))>;
-            key-positions = <39 41>;
-        };
-
+        /* Kobito: S + D (11 12) */
         combo_caps_word {
             bindings = <&caps_word>;
-            key-positions = <40 41>;
+            key-positions = <26 27>;
         };
 
-        combo_alt_win_4 {
-            bindings = <&kp LA(LG(NUMBER_4))>;
-            key-positions = <33 34>;
-        };
-
-        combo_alt_win_5 {
-            bindings = <&kp LA(LG(NUMBER_5))>;
+        /* Kobito: K + L (17 18) */
+        combo_key_repeat {
+            bindings = <&key_repeat>;
             key-positions = <34 35>;
-        };
-
-        combo_alt_win_6 {
-            bindings = <&kp LA(LG(NUMBER_6))>;
-            key-positions = <35 36>;
-        };
-
-        combo_ctl_sft_a {
-            bindings = <&kp LS(LC(A))>;
-            key-positions = <33 35>;
-        };
-
-        combo_alt_e {
-            bindings = <&kp LA(E)>;
-            key-positions = <34 36>;
-        };
-
-        combo_alt_d {
-            bindings = <&kp LA(D)>;
-            key-positions = <33 36>;
-        };
-
-        combo_ctl_t {
-            bindings = <&kp LC(T)>;
-            key-positions = <47 49>;
-        };
-
-        combo_ctl_w {
-            bindings = <&kp LC(W)>;
-            key-positions = <48 50>;
-        };
-
-        combo_ctl_sft_t {
-            bindings = <&kp LS(LC(T))>;
-            key-positions = <48 49>;
-        };
-
-        combo_ctl_sft_o {
-            bindings = <&kp LS(LC(O))>;
-            key-positions = <47 50>;
-        };
-
-        combo_ctl_pgup {
-            bindings = <&kp LC(PAGE_UP)>;
-            key-positions = <47 48>;
-        };
-
-        combo_ctl_pgdown {
-            bindings = <&kp LC(PAGE_DOWN)>;
-            key-positions = <49 50>;
         };
     };
 
@@ -176,7 +100,6 @@
             compatible = "zmk,behavior-mod-morph";
             label = "MOD_MORPH_MINUS_UNDERSCORE";
             bindings = <&kp MINUS>, <&kp JP_UNDER>;
-
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
         };
@@ -199,7 +122,6 @@
             compatible = "zmk,behavior-mod-morph";
             label = "MOD_MORPH_EXCLAMATION";
             bindings = <&tap_dance_comma_semicolon>, <&kp EXCLAMATION>;
-
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
         };
@@ -208,7 +130,6 @@
             compatible = "zmk,behavior-mod-morph";
             label = "MOD_MORPH_QUESTION";
             bindings = <&tap_dance_period_colon>, <&kp QUESTION>;
-
             #binding-cells = <0>;
             mods = <(MOD_RSFT|MOD_LSFT)>;
         };
@@ -285,13 +206,6 @@
             label = "MACRO_ALT_SPC_S";
         };
 
-        macro_passhead: macro_passhead {
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&none &kp LS(T) &kp JP_AT &kp K &kp N3>;
-            label = "MACRO_PASSHEAD";
-        };
-
         macro_mac_soon: macro_mac_soon {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -307,11 +221,11 @@
 
         layer_0 {
             bindings = <
-&none  &none             &none         &none  &none  &none                                              &none             &none  &none                    &none                &none                        &none
-&none  &kp Q             &kp W         &kp E  &kp R  &kp T                                              &kp Y             &kp U  &kp I                    &kp O                &kp P                        &none
-&none  &kp A             &kp S         &kp D  &kp F  &kp G               &none                  &none   &kp H             &kp J  &kp K                    &kp L                &mod_morph_minus_underscore  &none
-&none  &kp Z             &kp X         &kp C  &kp V  &kp B               &macro_mac_soon        &mo 5   &kp N             &kp M  &mod_morph_exclamation   &mod_morph_question  &kp F10                      &none
-&none  &mt LEFT_ALT TAB  &kp LEFT_WIN  &none  &none  &lt 2 INT_MUHENKAN  &mt LEFT_SHIFT SPACE   &mt RIGHT_SHIFT SPACE &lt 3 INT_HENKAN &none  &none                    &lt 3 K_APPLICATION  &mt RIGHT_CONTROL TAB        &none
+&none  &none             &none         &none  &none  &none                                                                  &none             &none  &none                   &none                &none                        &none
+&none  &kp Q             &kp W         &kp E  &kp R  &kp T                                                                  &kp Y             &kp U  &kp I                   &kp O                &kp P                        &none
+&none  &kp A             &kp S         &kp D  &kp F  &kp G                 &none                  &none                     &kp H             &kp J  &kp K                   &kp L                &mod_morph_minus_underscore  &none
+&none  &kp Z             &kp X         &kp C  &kp V  &kp B                 &lt 5 LA(LEFT_ARROW)   &lt 6 LA(RIGHT_ARROW)     &kp N             &kp M  &mod_morph_exclamation  &mod_morph_question  &kp F10                      &none
+&none  &mt LEFT_ALT TAB  &kp LEFT_WIN  &none  &none  &lt 2 INT_MUHENKAN    &mt LEFT_SHIFT SPACE   &mt RIGHT_SHIFT SPACE     &lt 3 INT_HENKAN  &none  &none                   &lt 3 K_APPLICATION  &mt RIGHT_CONTROL TAB        &none
             >;
         };
 
@@ -321,7 +235,7 @@
 &none  &trans  &trans  &trans  &trans  &trans                  &trans  &trans     &trans     &trans     &trans  &none
 &none  &trans  &trans  &trans  &trans  &trans  &none   &none   &trans  &mkp LCLK  &mkp MCLK  &mkp RCLK  &trans  &none
 &none  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans     &trans     &trans     &trans  &none
-&none  &trans  &trans  &none   &none   &trans  &trans  &trans  &trans  &none      &none      &trans     &trans  &none
+&none  &trans  &trans  &none   &trans  &trans  &trans  &trans  &trans  &trans     &none      &trans     &trans  &none
             >;
         };
 
@@ -331,7 +245,7 @@
 &none  &kp F4            &kp LC(W)  &kp ESCAPE  &kp ENTER  &tap_dance_f1_f11                  &kp LG(PRINTSCREEN)  &kp HOME         &kp UP_ARROW    &kp END          &kp PRINTSCREEN  &none
 &none  &kp LC(A)         &kp LC(S)  &kp DELETE  &kp LC(F)  &tap_dance_f2_f3   &none   &none   &kp BACKSPACE        &kp LEFT_ARROW   &kp DOWN_ARROW  &kp RIGHT_ARROW  &kp DELETE       &none
 &none  &tap_dance_cz_cy  &kp LC(X)  &kp LC(C)   &kp LC(V)  &kp BACKSPACE      &trans  &trans  &kp ESCAPE           &kp ENTER        &kp PAGE_UP     &kp PAGE_DOWN    &kp JP_ZKHK      &none
-&none  &trans            &trans     &none       &none      &trans             &trans  &trans  &trans               &none            &none           &trans           &trans           &none
+&none  &trans            &trans     &none       &trans     &trans             &trans  &trans  &trans               &trans           &none           &trans           &trans           &none
             >;
         };
 
@@ -341,27 +255,47 @@
 &none  &kp JP_PLUS             &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp JP_ASTRK                              &kp CAPSLOCK   &mkp MB1         &mmv MOVE_UP    &mkp MB2         &kp PAUSE_BREAK  &none
 &none  &tap_dance_minus_equal  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &tap_dance_slash_percent  &none   &none   &mkp MB5       &mmv MOVE_LEFT   &mmv MOVE_DOWN  &mmv MOVE_RIGHT  &msc SCRL_UP     &none
 &none  &kp NUMBER_0            &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &tap_dance_period_comma   &trans  &trans  &mkp MB4       &mkp MB3         &msc SCRL_LEFT  &msc SCRL_RIGHT  &msc SCRL_DOWN   &none
-&none  &trans                  &trans        &none         &none         &trans                    &trans  &trans  &trans         &none            &none           &trans           &trans           &none
+&none  &trans                  &trans        &none         &trans        &trans                    &trans  &trans  &trans         &trans           &none           &trans           &trans           &none
             >;
         };
 
         layer_4 {
             bindings = <
-&none  &none           &none                            &none             &none         &none                  &none    &none                      &none        &none        &none         &none
-&none  &kp LALT        &kp LESS_THAN                    &kp GREATER_THAN  &kp JP_TILDE  &kp F5                 &kp F6   &kp JP_CARET               &kp JP_LPAR  &kp JP_RPAR  &kp DOLLAR    &none
-&none  &kp LCTRL       &tap_dance_exclamation_question  &kp JP_EQUAL      &kp JP_AT     &kp F7  &none   &none  &kp F8   &tap_dance_single_double  &kp JP_LBKT  &kp JP_RBKT  &kp JP_GRAVE  &none
-&none  &kp LEFT_SHIFT  &kp JP_AMPS                      &kp JP_PIPE       &kp HASH      &kp F9  &trans  &trans &kp F12  &kp SLASH                  &kp JP_LBRC  &kp JP_RBRC  &kp JP_BSLH   &none
-&none  &trans          &trans                           &none             &none         &trans  &trans  &trans &trans   &none                      &none        &trans       &trans        &none
+&none  &none           &none                            &none             &none         &none                    &none    &none                     &none        &none        &none         &none
+&none  &kp LALT        &kp LESS_THAN                    &kp GREATER_THAN  &kp JP_TILDE  &kp F5                   &kp F6   &kp JP_CARET              &kp JP_LPAR  &kp JP_RPAR  &kp DOLLAR    &none
+&none  &kp LCTRL       &tap_dance_exclamation_question  &kp JP_EQUAL      &kp JP_AT     &kp F7  &none   &none    &kp F8   &tap_dance_single_double  &kp JP_LBKT  &kp JP_RBKT  &kp JP_GRAVE  &none
+&none  &kp LEFT_SHIFT  &kp JP_AMPS                      &kp JP_PIPE       &kp HASH      &kp F9  &trans  &trans   &kp F12  &kp SLASH                 &kp JP_LBRC  &kp JP_RBRC  &kp JP_BSLH   &none
+&none  &trans          &trans                           &none             &trans        &trans  &trans  &trans   &trans   &trans                    &none        &trans       &trans        &none
             >;
         };
 
         layer_5 {
             bindings = <
-&none  &none   &none   &none  &none            &none                          &none         &none         &none         &none         &none           &none
-&none  &kp Q   &kp W   &kp E  &kp R            &kp T                          &none         &none         &out OUT_BLE  &out OUT_USB  &bt BT_CLR_ALL  &none
-&none  &kp A   &kp S   &kp D  &macro_passhead  &kp G           &none   &none  &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none
-&none  &kp Z   &kp X   &kp C  &kp V            &kp B           &trans  &trans &none         &none         &bt BT_PRV    &bt BT_NXT    &bt BT_CLR      &none
-&none  &trans  &trans  &none  &none            &mt LCTRL TAB   &trans  &trans &none         &none         &none         &none         &none           &none
+&none  &none        &none           &none           &none           &none                                  &none              &none             &none             &none              &none      &none
+&none  &kp LG(H)    &kp LA(LG(N7))  &kp LA(LG(N8))  &kp LA(LG(N9))  &kp LG(X)                              &macro_alt_spc_m   &kp LG(LS(LEFT))  &kp LG(UP)        &kp LG(LS(RIGHT))  &kp LG(R)  &none
+&none  &kp LG(V)    &kp LA(LG(N4))  &kp LA(LG(N5))  &kp LA(LG(N6))  &kp LG(B)      &none   &none           &macro_alt_spc_s   &kp LG(LEFT)      &kp LG(DOWN)      &kp LG(RIGHT)      &kp LG(L)  &none
+&none  &kp LG(DOT)  &kp LA(LG(N1))  &kp LA(LG(N2))  &kp LA(LG(N3))  &kp LG(LS(S))  &trans  &trans          &kp LG(LC(F4))     &kp LG(LC(D))     &kp LG(LC(LEFT))  &kp LG(LC(RIGHT))  &kp LG(TAB)  &none
+&none  &trans       &trans          &none           &trans          &trans         &trans  &trans          &trans             &trans            &none             &trans             &trans     &none
+            >;
+        };
+
+        layer_6 {
+            bindings = <
+&none  &none          &none       &none       &none       &none                                  &none          &none            &none            &none              &none          &none
+&none  &kp LC(LS(P))  &kp LC(N7)  &kp LC(N8)  &kp LC(N9)  &kp LC(R)                              &kp LC(LS(B))  &kp LC(JP_PLUS)  &kp LC(LS(O))    &kp LC(MINUS)      &kp LC(D)      &none
+&none  &kp LC(LS(C))  &kp LC(N4)  &kp LC(N5)  &kp LC(N6)  &kp LC(LS(R))  &none   &none           &kp LA(LS(B))  &kp LC(LS(A))    &kp LA(D)        &kp LA(E)          &kp LC(LS(N))  &none
+&none  &kp LC(LS(J))  &kp LC(N1)  &kp LC(N2)  &kp LC(N3)  &kp LC(LS(I))  &trans  &trans          &kp LC(W)      &kp LC(T)        &kp LC(PAGE_UP)  &kp LC(PAGE_DOWN)  &kp LC(LS(T))  &none
+&none  &trans         &trans      &none       &trans      &trans         &trans  &trans          &trans         &trans           &none            &trans             &trans         &none
+            >;
+        };
+
+        layer_7 {
+            bindings = <
+&none  &none   &none   &none   &none            &none                    &none         &none         &none         &none         &none           &none
+&none  &none   &none   &none   &none            &none                    &none         &none         &out OUT_BLE  &out OUT_USB  &bt BT_CLR_ALL  &none
+&none  &none   &none   &none   &macro_mac_soon  &none   &none   &none    &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4    &none
+&none  &none   &none   &none   &none            &none   &trans  &trans   &none         &none         &bt BT_PRV    &bt BT_NXT    &bt BT_CLR      &none
+&none  &trans  &trans  &none   &trans           &trans  &trans  &trans   &trans        &trans        &none         &trans        &trans          &none
             >;
         };
     };
@@ -369,9 +303,14 @@
     conditional_layers {
         compatible = "zmk,conditional-layers";
 
-        condition {
+        condition_layer4 {
             if-layers = <2 3>;
             then-layer = <4>;
+        };
+
+        condition_layer7 {
+            if-layers = <5 6>;
+            then-layer = <7>;
         };
     };
 };
